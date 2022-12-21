@@ -1,0 +1,42 @@
+// .ibg{
+//     background-repeat: no-repeat;
+//     background-size: cover;
+//     background-position: center;
+//     img{display: none;}
+// }
+
+//<СТРІЛКА>
+// &::after{
+//     content: '';
+//     width: 0;
+//     height: 0;
+//     border-left: 10px solid transparent;
+//     border-right: 10px solid transparent;
+//     border-top: 10px solid red;
+// }
+
+.btn {
+    display: inline-block;
+    padding: 0px 45px;
+    border: 1px #fff solid;
+    border-radius: 5px;
+    // .btn_b
+    &_b {
+        background-color: #0F0F0F;
+        height: 70px;
+        @include anim(0.5s, 0s);
+        span{
+            font-size: 24px;
+            font-weight: 500;
+            line-height: 68px;
+            color: #fff;
+        }
+        &:hover{
+            @include scale(0.93);
+            background-color: #3f3f3f;
+        }
+        @media (min-width:$md3){
+            span{font-size: 2vw;}
+        }
+    }
+}

@@ -1,0 +1,382 @@
+//Шрифти
+//@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Jost:300,500&display=swap&subset=cyrillic-ext');
+
+//Шрифт за замовчуванням
+$fontfamily: 'Arial';
+
+//Змінні
+$minwidth:320px;
+$mw:1110;
+$md1:$mw+12;
+$md2:992.98px;
+$md3:767.98px;
+$md4:479.98px;
+
+//Скидування стилів
+@import "nullstyle.scss";
+
+//Імпортовані стилі
+@import "mixins";
+@import "ui";
+@import "forms";
+
+//Оболонка
+.wrapper{width: 100%;min-height: 100%;overflow: hidden;
+	@include flexbox();
+	flex-direction: column;
+	&.loaded{}
+}
+
+//Основна сітка
+.container{max-width:$mw+px;margin: 0 auto;width: 100%; padding: 0 10px;
+	@media (max-width:$md1+px){max-width: 970px;}
+	@media (max-width:$md2){max-width: 750px;}
+	@media (max-width:$md3){max-width: none;}
+}
+
+body{
+}
+
+//====================================================================================================
+.header {
+	display: none;
+	background-color: #000;
+	height: 88px;
+	width: 100vh;
+	position: fixed;
+	bottom: 0;
+	left: 88px;
+	z-index: 50;
+	transform-origin: bottom left;
+	@include rotate(-90deg);
+
+	@media (min-width:$md3){
+		display: block;
+	}
+
+	// .header__menu
+	&__menu {
+	}
+}
+.menu {
+
+	// .menu__list
+	&__list {
+		height: 88px;
+		@include flexbox;
+		flex-direction: row-reverse;
+		justify-content: center;
+		align-items: center;
+		padding: 0px 10px;
+	}
+
+	// .menu__item
+
+	&__item {
+		padding: 0px 5px;
+		text-align: center;
+	}
+
+	// .menu__link
+
+	&__link {
+		color: #FFFFFF;
+		font-family: 'Jost';
+		font-weight: 300;
+		font-size: 2.4vh;
+		text-transform: uppercase;
+		@include anim(0.3s, 0s);
+		&:hover{
+			font-weight: 500;
+		}
+	}
+}
+
+//====================================================================================================
+.page {
+	flex: 1 1 100%;
+	.fullscreen {
+		background-color: #3A3A3A;
+		padding: 40px 0px 40px 0px;
+		height: 100vh;
+		@include flexbox;
+		flex-direction: column;
+		justify-content: space-between;
+
+		// .fullscreen__column
+		&__column{
+			&:nth-child(2){
+				margin: 60px 0px 10px 0px;
+			}
+		}
+
+		// .fullscreen__logo
+		&__logo {
+			width: 40vw;
+			height: 15vh;
+			margin: 0px auto;
+			position: relative;
+			img{
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				object-fit: fill;
+			}
+		}
+
+		// .fullscreen__row
+		&__row {
+			@media (min-width:$md3){
+				@include flexbox;
+			}
+			@media (max-width:$md3){
+				text-align: center;
+			}
+		}
+
+		// .fullscreen__content
+		&__content {
+			flex: 0 0 100%;
+		}
+
+		// .fullscreen__body
+
+		&__body {
+			@media (min-width:$md3){
+				width: 50%;
+				padding: 0px 20px 0px 0px;
+			}
+		}
+
+		// .fullscreen__title
+
+		&__title {
+			font-weight: 400;
+			font-size: 30px;
+			line-height: 101%;
+			color: #FFFFFF;
+			span{
+				color: #FFF700;
+			}
+			margin: 0px 0px 23px 0px;
+			@media (min-width:$md3){
+				font-size: 4.2vw;
+			}
+		}
+
+		// .fullscreen__text
+
+		&__text {
+			font-weight: 400;
+			font-size: 18px;
+			line-height: 110%;
+			color: #FFFFFF;
+			margin: 0px 0px 110px 0px;
+			@media (min-width:$md3){
+				font-size: 2vw;
+			}
+		}
+
+		// .fullscreen__btn
+		&__btn {
+
+		}
+
+		// .fullscreen__items
+		&__items {
+			display: none;
+			padding: 5% 0px 0px 0px;
+			border: 1px #fff solid;
+			border-right: none;
+			position: relative;
+			z-index: 5;
+			&::after{
+				content: '';
+				position: absolute;
+				right: 0;
+				top: -15%;
+				width: 60%;
+				height: 15%;
+				background-color: #202020;
+				margin: -1px 0px 0px 0px;
+			}
+			@media (min-width:$md3){
+				flex: 0 0 50%;
+				@include tr(-100%, 0, 0);
+				display: block;
+			}
+		}
+
+		// .fullscreen__heading
+		&__heading {
+			background-color: #000;
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 1.6em;
+			width: 100%;
+			font-size: 3vw;
+			font-weight: 400;
+			line-height: 150%;
+			color: #FFFFFF;
+			text-align: center;
+		}
+
+		// .fullscreen__image
+		&__image {
+			position: relative;
+			width: 100%;
+			height: 100%;
+			img{
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+		}
+
+		// .fullscreen__arrow
+		&__arrow {
+			display: block;
+			width: 43px;
+			height: 25px;
+			margin: 5px auto 0;
+			background: url("../img/fullscreen/icons/arrow.svg") center / cover;
+			animation: bouncing 1s ease-in-out infinite alternate;
+			position: relative;
+		}
+		@keyframes bouncing {
+			0%{
+				top: 0;
+			}
+			100%{
+				top: 20px;
+			}
+		}
+	}
+	.about {
+		background-color: #EEEEEE;
+		padding: 160px 0px 110px 0px;
+
+		// .about__body
+		&__body {
+			@media (min-width:$md2){
+				@include flexbox;
+			}
+		}
+
+		// .about__image
+		&__image {
+			flex: 0 1 36%;
+			position: relative;
+			max-width: 300px;
+			margin: 0px auto 30px;
+			padding: 0px 0px 440px 0px;
+			img{
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				z-index: 5;
+			}
+			&::before{
+				content: '';
+				position: absolute;
+				right: 0;
+				top: -10%;
+				width: 120%;
+				height: 55%;
+				background-color: #202020;
+			}
+			@media (min-width:$md2){
+				padding: 0px 0px 50% 0px;
+				max-width: none;
+				margin: 0px 0px;
+			}
+		}
+
+		// .about__info
+		&__info {
+			flex: 0 1 64%;
+			max-width: 550px;
+			margin: 0px auto;
+			@media (min-width:$md2){
+				padding: 0px 0px 0px 11.5%;
+				max-width: none;
+			}
+		}
+
+		// .about__title
+		&__title {
+			font-size: 36px;
+			font-weight: 700;
+			line-height: 38.7px;
+			color: inherit;
+			margin: 0px 0px 30px 0px;
+		}
+
+		// .about__text
+		&__text {
+			font-size: 24px;
+			font-weight: 400;
+			line-height: 25.8px;
+			color: inherit;
+			max-width: 500px;
+			&:not(:last-child){
+				margin: 0px 0px 50px 0px;
+			}
+		}
+	}
+	.pluses {
+		height: 100vh;
+		// .pluses__heading
+
+		&__heading {
+		}
+
+		// .pluses__body
+
+		&__body {
+		}
+
+		// .pluses__items
+
+		&__items {
+		}
+
+		// .pluses__item
+
+		&__item {
+		}
+
+		// .pluses__title
+
+		&__title {
+		}
+
+		// .pluses__text
+
+		&__text {
+		}
+	}
+	@media (min-width:$md3){
+		.fullscreen{
+			padding: 40px 0px 40px 88px;
+		}
+		.about{
+			padding: 160px 0px 110px 88px;
+		}
+	}
+	@media (min-width:$md2){
+		.about{
+			padding: 260px 0px 210px 88px;
+		}
+	}
+}
