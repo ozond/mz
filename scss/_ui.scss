@@ -35,8 +35,24 @@
             @include scale(0.93);
             background-color: #3f3f3f;
         }
-        @media (min-width:$md3){
-            span{font-size: 2vw;}
+        @media (min-width:$md2){
+            span{font-size: 32px;}
+        }
+    }
+    // .btn_g
+    &_g{
+        background-color: #434343;
+        height: 60px;
+        @include anim(0.5s, 0s);
+        span{
+            font-size: 24px;
+            font-weight: 500;
+            line-height: 58px;
+            color: #fff;
+        }
+        &:hover{
+            @include scale(0.93);
+            background-color: #3f3f3f;
         }
     }
 }
